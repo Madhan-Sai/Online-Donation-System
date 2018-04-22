@@ -1,0 +1,79 @@
+<style>
+	i:hover{
+		color: red;	
+	}
+	label{
+		font-size: 25px;
+	}
+</style>
+<br><br><h1 align="center">Create Event</h1>
+<div class="container">
+<form role="form" class="form-horizontal" method="post" action="createaction">
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-bell"></i>&nbsp;Event Name</label>
+		<div class="col sm-10">
+		<input type="text" class="form-control" name="name" required placeholder="Event Name">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-bookmark"></i>&nbsp;Caption</label>
+		<div class="col sm-10">
+		<input type="text" class="form-control" name="caption" required placeholder="Motive of the Event">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-tags"></i>&nbsp;Tags</label>
+		<div class="col sm-10">
+		<input type="text" class="form-control" name="tags" required placeholder="Hashtags">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-university"></i>&nbsp;Trust Name</label><label id="msgm" style="color: red;font-size: 15px"></label>
+		<div class="col sm-10">
+		<input type="text" class="form-control" name="trust" placeholder="Name of the Trust (If not enter Volunteer)">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-location-arrow"></i>&nbsp;Location</label>
+		<div class="col sm-10">
+		<textarea class="form-control" name="address" placeholder="Address"></textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-rupee"></i>&nbsp;Estimated Amount</label>
+		<div class="col sm-10">
+		<input type="number" class="form-control" name="estamnt" placeholder="In Indian Rupees">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3">
+			<i class="fa fa-calendar"></i>&nbsp;End Date</label>
+		<div class="col sm-10">
+		<input type="date" class="form-control" name="endDate">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3">
+			<i class="fa fa-key"></i>&nbsp;Account Number</label>
+		<div class="col sm-10">
+		<input type="integer" class="form-control" name="acNo">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3">
+			<i class="fa fa-key"></i>&nbsp;IFSC Code</label>
+		<div class="col sm-10">
+		<input type="integer" class="form-control" name="ifsc">
+		</div>
+	</div>
+	<div class="form-group">
+		<input type="checkbox" name="conditions" required><label>I agree to the Terms and Conditions</label>
+	</div>
+	<div class="form-group">
+		<div class="col sm-10" align="center">
+		<button type="submit" class="btn-lg btn-success">Create Event</button>
+		</div>
+	</div>
+	<br><br>
+</form>
+</div>

@@ -1,0 +1,45 @@
+<style type="text/css">
+	input{
+		font-size: 20px;
+	}
+	label{
+		font-size: 20px;
+	}
+	input[type="text"]{
+		width: 500px;
+	}
+</style>
+<script type="text/javascript">
+	num=1
+	function addbox() {
+		val=num++
+		var brk=document.createElement("br");
+		var element=document.createElement("input");
+		element.type="text";
+		element.placeholder="Description"
+		element.name="desc"+val;
+		var amnt=document.createElement("input");
+		amnt.type="number";
+		amnt.name="amnt"+val;
+		amnt.placeholder="Amount Spent"
+		var label=document.createElement("label");
+		var label1=document.createElement("label");
+		label.innerHTML="Detail #"+num+":&nbsp;";
+		var parent=document.getElementById("form");
+		var before=document.getElementById("submit");
+		parent.insertBefore(brk,before);
+		parent.insertBefore(label,brk);
+		parent.insertBefore(element,brk);
+		label1.innerHTML="&nbsp;";
+		parent.insertBefore(label1,brk);
+		parent.insertBefore(amnt,brk);
+	}
+</script>
+<% session[:eventid]=@event.id %>
+<form role="form" id="form" method="post" action="submitDet" style="align-content: center;">
+  <label >Detail #1:</label>
+  <input type="text" placeholder="Description" name="desc1">
+  <input type="number" placeholder="Amount Spent" name="amnt1"><br>
+  <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+</form><br>
+<input type="button" value="Add Detail" onclick="addbox()" class="btn btn-primary">

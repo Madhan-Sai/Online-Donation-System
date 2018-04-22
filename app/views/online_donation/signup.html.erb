@@ -1,0 +1,84 @@
+<style>
+	i:hover{
+		color: red;	
+	}
+	label{
+		font-size: 25px;
+	}
+</style>
+<script src="/js/validate.js"></script>
+<br><br><h1 align="center">Sign up</h1>
+<nav class="navbar navbar-expand-sm bg-success navbar-dark fixed-top">
+	 <a class="nav-text">Sign Up</a>
+  <ul class="navbar-nav ml-auto">
+  	<li class="nav-item">
+  		<a class="nav-link" href="home"><i class="fa fa-home"></i>&nbsp;Home</a>
+  	</li>
+  	<li class="nav-item">
+  		<a class="nav-link" href="login"><i class="fa fa-sign-in"></i>&nbsp;Login</a>
+  	</li>
+  </ul>
+</nav>
+<div class="container">
+<form role="form" class="form-horizontal" method="post" action="signupaction">
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-user"></i>&nbsp;Name</label>
+		<div class="col sm-10">
+		<input type="text" class="form-control" name="name" required placeholder="Name">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-user"></i>&nbsp;User Name</label>
+		<div class="col sm-10">
+		<input type="text" class="form-control" name="uname" required placeholder="User Name">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-key"></i>&nbsp;Password</label><label id="msgp" style="color: red;font-size: 15px"></label>
+		<div class="col sm-10">
+		<input type="password" class="form-control" name="passwd" id="passwd" required placeholder="Password" onblur="validatePass()">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-envelope"></i>&nbsp;Mail</label><label id="msgm" style="color: red;font-size: 15px"></label>
+		<div class="col sm-10">
+		<input type="email" class="form-control" name="mail" id="mail" required placeholder="E-Mail" onblur="validateMail()">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-phone"></i>&nbsp;Phone</label><label id="msgn" style="color: red;font-size: 15px"></label>
+		<div class="col sm-10">
+		<input type="number" maxlength="10" class="form-control" required name="phone" id="phone" onblur="validateNum()" placeholder="Phone number">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-birthday-cake"></i>&nbsp;Date Of Birth</label>
+		<div class="col sm-10">
+		<input type="date" class="form-control" name="dob" placeholder="Date Of birth">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-check-square"></i>&nbsp;Gender</label>
+		<div class="col sm-10">
+			<input type="radio" name="gender" value="Male">
+			<label for="name" class="control-label col-sm-3"><i class="fa fa-male"></i>&nbsp;Male</label>
+			<input type="radio" name="gender" value="Female">
+			<label for="name" class="control-label col-sm-3"><i class="fa fa-female"></i>&nbsp;Female</label>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-location-arrow"></i>&nbsp;Address</label>
+		<div class="col sm-10">
+		<textarea class="form-control" name="address" placeholder="Address"></textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<input type="checkbox" name="conditions" required><label>I agree to the Terms and Conditions</label>
+	</div>
+	<div class="form-group">
+		<div class="col sm-10" align="center">
+		<button type="submit" class="btn-lg btn-success">Sign Up</button>
+		</div>
+	</div>
+</form>
+</div>

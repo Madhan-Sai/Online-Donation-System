@@ -1,0 +1,75 @@
+<h1 align="center">Events Created by <%= session[:user] %></h1>
+<% count=0 
+@events.each do |event|   
+  if(@u.id == event.organizer)
+      if(count %2==0) %>
+        <div class="row">
+      <% end%>
+  <div class="col-md-6">
+      <% days= (event.endDate-DateTime.now).to_i() %>
+        <div class="card" style="width:35rem;">
+            <img class="card-img-top" src="/img/donate.png" alt="Card image cap" style="width: 50%;">
+            <div class="card-body">
+              <h5 class="card-title"><%= event.eventName %></h5>
+              <p class="card-text"><%= event.caption %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" align="center"> 
+                <form action="editEvent" method="post">
+                  <button  <% if(days<=0) %>
+                   disabled="disabled "
+                   class="btn-lg btn-danger"
+                   <% else %>
+                   class="btn-lg btn-success"
+                   <% end %> name="edit" value="<%= event.id %> edit"><i class="fa fa-pencil"></i> Edit</button>
+                  <button <% if(Moneydetail.find_by_eventid(event.id)!=nil) %>
+                   disabled="disabled "
+                   class="btn-lg btn-danger"
+                   <% else %>
+                   class="btn-lg btn-success"
+                   <% end %> name="submit" value="<%= event.id %> submit"><i class="fa fa-paper-plane"></i> Submit Details</button>
+                   <button class="btn-lg btn-success" name="details" value="<%= event.id %> submit"><i class="fa fa-user"></i> Donors list</button>
+                </form>
+              </li>
+              <li class="list-group-item">
+                <p>Estimated Amount : &#8377;<%= event.estAmnt %></p>
+                <p>Collected Amount : &#8377;<%= event.collectedAmnt %></p><% val=event.collectedAmnt/event.estAmnt*100 %>
+                <div class="progress">
+                  <div class="progress-bar progress-bar 
+                    <% if(val<=40.0) %>
+                      bg-danger 
+                      <% elsif(val>40.0 and val<=60.0) %>
+                       bg-warning 
+                      <% elsif(val>60.0 and val<=80.0)%>
+                       bg-info 
+                      <% elsif(val>80.0) %>
+                       bg-success 
+                      <%end %>
+                      <%if (days>=0) %>
+                        progress-bar-striped progress-bar-animated"
+                      <%else %>
+                        "
+                        <%end %>
+                      role="progressbar" aria-valuenow="<%= val %>" aria-valuemin="0" aria-valuemax="100" style="width:<%= val %>%" >
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item"><i class="fa fa-calendar"></i> End Date : <%= event.endDate %> <strong>
+                (<%if (days>=0)%>
+                  <%= days %> Days to go
+                  <% else %>
+                  <%= days*-1 %> Days ago
+                  <% end %>)</strong></li>
+            </ul>
+        </div>
+      </div>
+  <%
+     if(count%2==1) %>
+        </div><br>
+  <%end
+  count+=1  
+end
+end
+if(count%2==1)%>
+  </div>
+  <% end %>

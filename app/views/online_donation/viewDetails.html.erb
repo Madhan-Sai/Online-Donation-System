@@ -1,0 +1,24 @@
+<h1 align="center">Donors details</h1>
+<table style="border-color: red" class="table table-striped">
+	<thead>
+      <tr>
+      	<th>S.No</th>
+        <th>Donor Name</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+<%count=1
+ @donations.each do |d|
+	if (d.eventid==@event.id)
+		@donor=User.find_by_id(d.donorid) %>
+	<tr>
+		<td><%= count %></td>
+		<td><%= @donor.uname %></td>
+		<td><%= d.amnt %></td>
+		<td><%= d.created_at %></td>
+	</tr>
+	<%count+=1
+	end
+end%>
+</table>

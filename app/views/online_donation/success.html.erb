@@ -1,0 +1,26 @@
+<h1 align="center">Successfully donated</h1>
+<h2>Report</h2><br>
+<table>
+	<tr>
+		<td>Name</td>
+		<td>: <%= session[:name] %></td>
+	</tr>
+	<tr><td>Amount Donated </td>
+		<td>: <%= session[:amnt]  %></td>
+	</tr>
+	<tr>
+		<td>Account number  </td>
+		<td>: <%= session[:acnt]  %></td>
+	</tr>
+	<tr>
+		<td>Event name </td>
+		<td>: <%= session[:ename]  %></td>
+	</tr>
+	<tr>
+		<td>Current balance </td>
+		<td>: <%= session[:bal]  %></td>
+	</tr>
+</table><br><br>
+<form method="post" action="profile">
+	<button  class="btn btn-success">Move to dashboard</button>
+</form>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OnlineDonation</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+	<style>
+	body{
+		background-color: cyan;
+	}
+.parallax { 
+    background-image: url("/img/bg.jpg");
+
+    height: 500px; 
+    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.charity { 
+    background-image: url("/img/bg2.jpg");
+
+    height: 500px; 
+    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.contact { 
+    background-image: url("/img/bg3.jpg");
+
+    height: 400px; 
+    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+img{
+	border-radius: 50%;
+}
+</style>
+<%= yield %>
+<nav class="navbar navbar-expand-sm bg-success navbar-dark fixed">
+  <p>&copy;Copyrights to CSE-A (2015-19)</p>
+</nav>
+</body>
+</html>

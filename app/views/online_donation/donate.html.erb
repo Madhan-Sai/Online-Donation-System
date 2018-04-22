@@ -1,0 +1,39 @@
+<h1 align="center">Available accounts</h1>
+<form method="post" action="addAcnt">
+	<button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Add Account</button>
+</form>
+<div class="container">
+<% count=0 
+@acnt.each do |a|
+	@b=BankAcnt.find_by_acntNo(a.acNo)
+	if(count %3==0) %>
+        <div class="row">
+      <% end
+	if(a.userNo==@u.id)%>
+	<div class="col-md-4">
+        <div class="card" style="width:20rem;">
+            <img class="card-img-top" src="/img/bank.png" alt="Card image cap" style="width: 50%;">
+            <div class="card-body">
+              <h6 class="card-title">Account Holder Name : <%= @b.name  %></h6>
+            </div>
+            <ul class="list-group list-group-flush">
+            	<li class="list-group-item">Account Type : <%= @b.actype %></li>
+              <li class="list-group-item" align="center"> 
+                <form action="donatemoney" method="post">
+                  <button class="btn-lg btn-success" name="donate" value="<%= a.acNo %>"><i class="fa fa-money"></i> Use this account</button>
+                  <button class="btn-lg btn-danger" name="remove" value="<%= a.acNo %>"><i class="fa fa-times"></i></button>
+                </form>
+              </li>
+            </ul>
+        </div>
+      </div>
+      <%   count+=1
+      if(count%3==0 ) %>
+        </div><br>
+  <%end  
+end
+	end	%>
+
+</div>
+	<br>
+

@@ -1,0 +1,28 @@
+<h1 align="center">Change password</h1><br><br>
+<div class="container">
+<form role="form" class="form-horizontal" action="changeaction">
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-lock"></i>&nbsp;Old Password</label><label style="color: red"><%= session[:msg] %></label>
+		<div class="col sm-10">
+		<input type="password" class="form-control" name="old" required placeholder="Old Password">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-lock"></i>&nbsp;New Password</label>
+		<div class="col sm-10">
+		<input type="password" class="form-control" name="newp" id="pd" required placeholder="New Password">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name" class="control-label col-sm-3"><i class="fa fa-lock"></i>&nbsp;New Password Again</label>
+		<div class="col sm-10">
+		<input type="password" class="form-control" name="cnewp" id="cpd" required placeholder="New Password Again">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col sm-10" align="center">
+		<button type="submit" class="btn-lg btn-success">Change password</button>
+		</div>
+	</div>
+</form>
+</div>

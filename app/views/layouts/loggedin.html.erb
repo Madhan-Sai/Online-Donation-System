@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OnlineDonation</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+	<link rel="stylesheet" type="text/css" href="/css/menu.css">
+  <script>
+    function openNav() {
+    document.getElementById("mySidenav").style.width = "200px";
+    document.getElementById("main").style.marginLeft = "200px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+  </script>
+     
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="profile"><i class="fa fa-windows"></i>&nbsp;Dashboard</a> 
+  <a href="createEvent"><i class="fa fa-plus"></i>&nbsp;Create Event</a>
+  <a href="getdetails"><i class="fa fa-table"></i>&nbsp;View Donation Details</a>
+  <a href="getevents"><i class="fa fa-table"></i>&nbsp;View Event Details</a>
+  <a href="settings"><i class="fa fa-gear"></i>&nbsp;Settings</a>
+</div>
+<div id="main">
+
+<nav class="navbar navbar-expand-sm bg-success navbar-dark fixed-top">
+	<i class="fa fa-bars" onclick="openNav()"></i>
+	<a class="nav-text">&nbsp;Welcome <%= session[:user] %></a>
+  <ul class="navbar-nav ml-auto">
+  	<li class="nav-item">
+  		<form class="navbar-form navbar-left" action="profile">
+  			<div class="input-group">
+  				<input type="text" class="form-control" name="search" placeholder="Search for Event">
+  				<div class="input-group-btn">
+  					<button class="btn btn-primary" type="submit">
+  						<i class="fa fa-search"></i>
+  					</button>
+  				</div>
+  			</div>
+  		</form>
+  	</li>
+
+    <li class="nav-item">
+      <a class="nav-link">&nbsp;<i class="fa fa-bell"></i>&nbsp;Messages</a>
+    </li>
+  	<li class="nav-item">
+  		<a class="nav-link" href="logout">&nbsp;<i class="fa fa-sign-out"></i>&nbsp;Logout</a>
+  	</li>
+  </ul>
+</nav>
+<br><br>
+<%= yield %>
+<br><br>
+<nav class="navbar navbar-expand-sm bg-success navbar-dark fixed-bottom">
+  <p>&copy;Copyrights to CSE-A (2015-19)</p>
+</nav>
+</body>
+</html>
